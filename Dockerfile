@@ -7,10 +7,10 @@ ENV ENVIRONMENT default
 COPY app/ ./app/
 COPY package.json ./
 
-RUN npm install --production
+RUN yarn install --production
 
 HEALTHCHECK --interval=5s --retries=10 CMD curl -fs http://localhost:8080/health || exit 1
 
 EXPOSE 8080
 
-CMD ENVIRONMENT=$ENVIRONMENT npm forever
+CMD ENVIRONMENT=$ENVIRONMENT yarn forever
