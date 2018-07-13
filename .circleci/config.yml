@@ -27,22 +27,11 @@ jobs:
       - run:
           name: Check code formatting
           command: yarn lint
-
-  test:
-    <<: *node
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependencies-{{ checksum "package.json" }}
       - run:
           name: Run tests and upload to Codecov
           command: |
             yarn test
             bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
-      - save_cache:
-          key: dependencies-{{ checksum "package.json" }}
-          paths:
-            - ~/node_modules
 
   docker:
     <<: *docker
@@ -77,9 +66,7 @@ workflows:
   build-and-deploy:
     jobs:
       - build
-      - test
       - docker:
           context: default
           requires:
             - build
-            - test
