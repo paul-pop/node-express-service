@@ -7,7 +7,8 @@
 This is a skeleton service that uses NodeJS 8 and Express. It contains the following:
 
 * NPM/Yarn for dependency management
-* Jest for unit and integration testing + coverage (must be > 80%)
+* Jest for testing + coverage (must be > 80%)
+* Supertest for testing the express server
 * JSON configs for multi-environment setup
 * EditorConfig for code formatting
 * Swagger for API docs
@@ -27,7 +28,6 @@ In order to build the project, you will have to install the following:
 
 ```
 yarn install
-yarn build
 ```
 
 ### Docker
@@ -38,10 +38,16 @@ docker build -t quay.io/paulpop/node-express-service .
 
 ## Run
 
-### Maven
+### Yarn
 
+Development:
 ```
-mvn spring-boot:run
+yarn serve
+```
+
+Production:
+```
+yarn forever
 ```
 
 ### Docker
@@ -56,10 +62,13 @@ docker-compose up --build
 
 If you need to change any of the environment variables, please use the `.env` file.
 
-## Configuration
+## Linting
 
-Configuration file 'application.yml' is present in config directory together with profile specific YML files.
-The application.yml is used as a parent and the profile specific ones are used for overrides.
+To run ESLint, execute:
+
+```
+yarn lint
+```
 
 ## Testing
 
@@ -71,4 +80,4 @@ yarn test
 
 ## Documentation
 
-Once you run the application, the documentation of the API can be found at: http://localhost:8080/swagger-ui.html
+Once you run the application, the documentation of the API can be found at: http://localhost:8080/swagger
