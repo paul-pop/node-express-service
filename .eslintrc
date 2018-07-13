@@ -7,18 +7,22 @@
     "prettier"
   ],
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 8
   },
   "env": {
-    "es6": true
+    "es6": true,
+    "node": true
   },
   "rules": {
     "prettier/prettier": "error"
   },
-  "overrides": [{
-    "files": "**/*.test.js",
-    "env": {
-      "jest": true
+  "overrides": [
+    {
+      "files": "**/*.test.js",
+      "env": {
+        "jest": true
+      }
     }
-  }]
+  ]
 }
