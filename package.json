@@ -32,8 +32,8 @@
     "supertest": "^3.1.0"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
     "express-pino-logger": "^3.0.2",
     "forever": "^0.15.3",
     "swagger-ui-express": "^3.0.10"
